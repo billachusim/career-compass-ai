@@ -13,7 +13,7 @@ const AtsCheckerApp = lazy(() =>
 );
 
 export const Route = createFileRoute("/tools/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { tool: import("@/lib/tools").Tool } => {
     const tool = TOOL_MAP[params.slug];
     if (!tool) throw notFound();
     return { tool };
