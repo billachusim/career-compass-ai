@@ -73,7 +73,7 @@ export const Route = createFileRoute("/tools/$slug")({
 });
 
 function ToolPage() {
-  const { tool } = Route.useLoaderData();
+  const { tool } = Route.useLoaderData() as { tool: import("@/lib/tools").Tool };
   const Icon = tool.icon;
   const related = TOOLS.filter((t) => t.slug !== tool.slug).slice(0, 3);
 
